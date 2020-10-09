@@ -25,7 +25,7 @@ type Config = {
   onUpdate?: (registration: ServiceWorkerRegistration) => void
 }
 
-function registerValidSW(swUrl: string, config?: Config) {
+const registerValidSW = (swUrl: string, config?: Config) => {
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
@@ -69,7 +69,7 @@ function registerValidSW(swUrl: string, config?: Config) {
     })
 }
 
-function checkValidServiceWorker(swUrl: string, config?: Config) {
+const checkValidServiceWorker = (swUrl: string, config?: Config) => {
   // Check if the service worker can be found. If it can't reload the page.
   fetch(swUrl, {
     headers: { 'Service-Worker': 'script' },
@@ -99,7 +99,7 @@ function checkValidServiceWorker(swUrl: string, config?: Config) {
     })
 }
 
-export function register(config?: Config) {
+export const register = (config?: Config) => {
   if (
     process.env.NODE_ENV === 'production' &&
     typeof process.env.PUBLIC_URL === 'string' &&
@@ -137,7 +137,7 @@ export function register(config?: Config) {
   }
 }
 
-export function unregister() {
+export const unregister = () => {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.ready
       .then((registration) => {
