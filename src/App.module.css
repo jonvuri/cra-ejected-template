@@ -1,6 +1,9 @@
 .app {
+  --background-color: #a0f;
+  --text-color: white;
+  
   width: 100vw;
   height: 100vh;
-  background-color: #a0f;
-  color: white;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
